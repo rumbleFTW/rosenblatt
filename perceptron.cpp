@@ -1,29 +1,30 @@
 #include "funcs.h"
+#include "tensor.cpp"
 
 
 class perceptron
 {
     private:
-        double *weight, *inputs;
-        double bias;
-        int deg;
+        float *weight, *inputs;
+        float bias;
+        int rawLen, degree;
 
     public:
 
-        perceptron(double* inp)
+        perceptron(tensor* inputs)
         {
-            inputs = inp;
-            int deg  = sizeof(inputs)/sizeof(double);
-            weight = new double[deg];
+            rawLen  = inputs->rawLen;
+            degree = inputs->degree;
+            weight = new float[rawLen];
         }
 
-        float activate()
+        float activate(float(*activationFunc)(float))
         {
-            double result;
-            for(int i = 0; i<deg; i++)
+            float result;
+            for(int i = 0; i<degree; i++)
             {
                 result += weight[i]*inputs[i];
             }
-            return sigmoid(bias + result);
+            return activationFunc(bias + result);
         }
 };
