@@ -32,15 +32,15 @@ class tensor
             float array[rawLen] = {};
         }
 
-        // void show()                                              
-        // {
-        //     std::cout << std::endl <<'[' << std::endl;
-        //     for(int i = 0; i<degree; i++)
-        //     {
-        //         std::cout << '[';
-        //         std::cout << ']';
-        //     }
-        //     std::cout << std::endl <<']' << std::endl;
-        // }
+        void show()                                              
+        {
+             std::cout << std::endl <<'[' << std::endl;
+             for(int i = 0; i<degree; i++)
+             {
+                 std::cout << '[';
+                 std::cout << ']';
+             }
+             std::cout << std::endl <<']' << std::endl;
+         }
 
 };
